@@ -24,6 +24,7 @@ This program is for someone like a park ranger to keep track of animals on their
   * Built with bootstrap
 
 5. Polish
+  * Make form info disappear 
   * Add stylesheet
   * Add delete method
   * Make README awesome
