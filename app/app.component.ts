@@ -7,13 +7,19 @@ import { Component } from '@angular/core';
     <h1>To Do List</h1>
     <h3>For Epicodus Angular Homework{{currentFocus}}</h3>
     <ul>
-      <li *ngFor="let currentAnimal of animals">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)="editTask()">Edit</button></li>
+      <li *ngFor="let currentAnimal of animals">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)="editAnimal(currentAnimal)">Edit</button></li>
     </ul>
   </div>
   `
 })
 
 export class AppComponent {
+
+  editAnimal(clickedAnimal) {
+    this.selectedTask = clickedAnimal;
+  }
+
+
   currentFocus: string = 'Angular Homework';
   animals: Animal[] = [
     new Animal('SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
