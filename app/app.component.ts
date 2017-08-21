@@ -8,7 +8,7 @@ import { Animal } from './animal.model'
     <h1>To Do List</h1>
     <h3>For Epicodus Angular Homework</h3>
 
-    <animal-list [childAnimalList] = "masterAnimalList"></animal-list>
+    <animal-list [childAnimalList] = "masterAnimalList" (clickSender) = "editAnimal($event)"></animal-list>
 
     <hr>
     <div *ngIf="selectedAnimal">

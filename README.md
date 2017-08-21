@@ -15,7 +15,8 @@ This program is for someone like a park ranger to keep track of animals on their
   * Spec 3: Need to filter animals by age, input: show all animals <2, output: all animals less than age 2
 
 3. Integration
-  * index page and functions on app.Component.ts
+  * app.Component.ts contains all other Components
+  * AnimalListComponent contains our list of animals with edit buttons, which actions get mapped back to app.Component.ts
 
 4. UX/UI
   * Built with bootstrap
