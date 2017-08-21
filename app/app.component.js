@@ -15,17 +15,20 @@ var AppComponent = (function () {
             new Animal('2SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
             new Animal('3SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES')
         ];
-        this.selectedAnimal = this.animals[0];
+        this.selectedAnimal = null;
     }
     AppComponent.prototype.editAnimal = function (clickedAnimal) {
         this.selectedAnimal = clickedAnimal;
+    };
+    AppComponent.prototype.finishedEditing = function () {
+        this.selectedAnimal = null;
     };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'app-root',
-        template: "\n  <div class=\"container\">\n    <h1>To Do List</h1>\n    <h3>For Epicodus Angular Homework{{currentFocus}}</h3>\n    <ul>\n      <li *ngFor=\"let currentAnimal of animals\">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)=\"editAnimal(currentAnimal)\">Edit</button></li>\n    </ul>\n    <hr>\n    <div>\n      <h3>Edit {{selectedAnimal.species}} - {{selectedAnimal.name}}</h3>\n      <label>Animals Name:</label>\n      <input [(ngModel)]=\"selectedAnimal.name\">\n      <label>Animals Age:</label>\n      <input [(ngModel)]=\"selectedAnimal.age\">\n      <label>Animals Caretakers::</label>\n      <input [(ngModel)]=\"selectedAnimal.caretakers\">\n    </div>\n  </div>\n  "
+        template: "\n  <div class=\"container\">\n    <h1>To Do List</h1>\n    <h3>For Epicodus Angular Homework{{currentFocus}}</h3>\n    <ul>\n      <li *ngFor=\"let currentAnimal of animals\">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)=\"editAnimal(currentAnimal)\">Edit</button></li>\n    </ul>\n    <hr>\n    <div *ngIf=\"selectedAnimal\">\n      <h3>Edit {{selectedAnimal.species}} - {{selectedAnimal.name}}</h3>\n      <label>Animals Name:</label>\n      <input [(ngModel)]=\"selectedAnimal.name\">\n      <label>Animals Age:</label>\n      <input [(ngModel)]=\"selectedAnimal.age\">\n      <label>Animals Caretakers::</label>\n      <input [(ngModel)]=\"selectedAnimal.caretakers\">\n      <button (click)=\"finishedEditing()\">Done</button>\n    </div>\n  </div>\n  "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

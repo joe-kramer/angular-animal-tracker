@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
       <li *ngFor="let currentAnimal of animals">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)="editAnimal(currentAnimal)">Edit</button></li>
     </ul>
     <hr>
-    <div>
+    <div *ngIf="selectedAnimal">
       <h3>Edit {{selectedAnimal.species}} - {{selectedAnimal.name}}</h3>
       <label>Animals Name:</label>
       <input [(ngModel)]="selectedAnimal.name">
@@ -18,17 +18,13 @@ import { Component } from '@angular/core';
       <input [(ngModel)]="selectedAnimal.age">
       <label>Animals Caretakers::</label>
       <input [(ngModel)]="selectedAnimal.caretakers">
+      <button (click)="finishedEditing()">Done</button>
     </div>
   </div>
   `
 })
 
 export class AppComponent {
-  editAnimal(clickedAnimal) {
-    this.selectedAnimal = clickedAnimal;
-  }
-
-
   currentFocus: string = 'Angular Homework';
   animals: Animal[] = [
     new Animal('SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
@@ -36,7 +32,15 @@ export class AppComponent {
     new Animal('3SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES')
   ];
 
-  selectedAnimal: Animal = this.animals[0];
+  selectedAnimal = null;
+
+  editAnimal(clickedAnimal) {
+    this.selectedAnimal = clickedAnimal;
+  }
+
+  finishedEditing() {
+    this.selectedAnimal = null;
+  }
 }
 
 export class Animal {
