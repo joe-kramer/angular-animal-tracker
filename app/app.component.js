@@ -9,14 +9,35 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.currentFocus = 'Angular Homework';
+        this.animals = [
+            new Animal('SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
+            new Animal('2SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
+            new Animal('3SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES')
+        ];
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'app-root',
-        template: "\n  <h1>My First Angular 2 App</h1>\n  "
+        template: "\n  <div class=\"container\">\n    <h1>To Do List</h1>\n    <h3>For Epicodus Angular Homework{{currentFocus}}</h3>\n    <ul>\n      <li *ngFor=\"let currentAnimal of animals\">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)=\"editTask()\">Edit</button></li>\n    </ul>\n  </div>\n  "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
+var Animal = (function () {
+    function Animal(species, name, age, diet, location, caretakers, sex, likes, dislikes) {
+        this.species = species;
+        this.name = name;
+        this.age = age;
+        this.diet = diet;
+        this.location = location;
+        this.caretakers = caretakers;
+        this.sex = sex;
+        this.likes = likes;
+        this.dislikes = dislikes;
+    }
+    return Animal;
+}());
+exports.Animal = Animal;
 //# sourceMappingURL=app.component.js.map
