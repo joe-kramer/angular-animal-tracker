@@ -17,6 +17,7 @@ This program is for someone like a park ranger to keep track of animals on their
 3. Integration
   * app.Component.ts contains all other Components
   * AnimalListComponent contains our list of animals with edit buttons, which actions get mapped back to app.Component.ts
+  * EditAnimalComponent takes control of editing our animals, and pushing that information back to our app.Component
 
 4. UX/UI
   * Built with bootstrap

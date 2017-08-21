@@ -12,7 +12,7 @@ import { Animal } from './animal.model';
 
 export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
-  @Output() chickSender = new EventEmitter();
+  @Output() clickSender = new EventEmitter();
 
   editAnimalClicked(animalToEdit: Animal) {
     this.clickSender.emit(animalToEdit);

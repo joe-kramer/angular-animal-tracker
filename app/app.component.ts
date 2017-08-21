@@ -5,22 +5,12 @@ import { Animal } from './animal.model'
   selector: 'app-root',
   template: `
   <div class="container">
-    <h1>To Do List</h1>
-    <h3>For Epicodus Angular Homework</h3>
+    <h1>Animal tracker - Angualar 2</h1>
 
     <animal-list [childAnimalList] = "masterAnimalList" (clickSender) = "editAnimal($event)"></animal-list>
-
     <hr>
-    <div *ngIf="selectedAnimal">
-      <h3>Edit {{selectedAnimal.species}} - {{selectedAnimal.name}}</h3>
-      <label>Animals Name:</label>
-      <input [(ngModel)]="selectedAnimal.name">
-      <label>Animals Age:</label>
-      <input [(ngModel)]="selectedAnimal.age">
-      <label>Animals Caretakers::</label>
-      <input [(ngModel)]="selectedAnimal.caretakers">
-      <button (click)="finishedEditing()">Done</button>
-    </div>
+    <edit-animal [childSelectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing"></edit-animal>
+
   </div>
   `
 })

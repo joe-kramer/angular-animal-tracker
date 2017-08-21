@@ -7,14 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var animal_model_1 = require("./animal.model");
 var AppComponent = (function () {
     function AppComponent() {
-        this.currentFocus = 'Angular Homework';
-        this.animals = [
-            new Animal('SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
-            new Animal('2SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
-            new Animal('3SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES')
+        this.masterAnimalList = [
+            new animal_model_1.Animal('SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
+            new animal_model_1.Animal('2SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
+            new animal_model_1.Animal('3SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES')
         ];
+        this.currentFocus = 'Angular Homework';
         this.selectedAnimal = null;
     }
     AppComponent.prototype.editAnimal = function (clickedAnimal) {
@@ -28,23 +29,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'app-root',
-        template: "\n  <div class=\"container\">\n    <h1>To Do List</h1>\n    <h3>For Epicodus Angular Homework{{currentFocus}}</h3>\n    <ul>\n      <li *ngFor=\"let currentAnimal of animals\">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)=\"editAnimal(currentAnimal)\">Edit</button></li>\n    </ul>\n    <hr>\n    <div *ngIf=\"selectedAnimal\">\n      <h3>Edit {{selectedAnimal.species}} - {{selectedAnimal.name}}</h3>\n      <label>Animals Name:</label>\n      <input [(ngModel)]=\"selectedAnimal.name\">\n      <label>Animals Age:</label>\n      <input [(ngModel)]=\"selectedAnimal.age\">\n      <label>Animals Caretakers::</label>\n      <input [(ngModel)]=\"selectedAnimal.caretakers\">\n      <button (click)=\"finishedEditing()\">Done</button>\n    </div>\n  </div>\n  "
+        template: "\n  <div class=\"container\">\n    <h1>Animal tracker - Angualar 2</h1>\n\n    <animal-list [childAnimalList] = \"masterAnimalList\" (clickSender) = \"editAnimal($event)\"></animal-list>\n    <hr>\n    <edit-animal [childSelectedAnimal]=\"selectedAnimal\" (doneButtonClickedSender)=\"finishedEditing\"></edit-animal>\n\n  </div>\n  "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
-var Animal = (function () {
-    function Animal(species, name, age, diet, location, caretakers, sex, likes, dislikes) {
-        this.species = species;
-        this.name = name;
-        this.age = age;
-        this.diet = diet;
-        this.location = location;
-        this.caretakers = caretakers;
-        this.sex = sex;
-        this.likes = likes;
-        this.dislikes = dislikes;
-    }
-    return Animal;
-}());
-exports.Animal = Animal;
 //# sourceMappingURL=app.component.js.map
