@@ -13,9 +13,13 @@ var core_1 = require("@angular/core");
 var AnimalListComponent = (function () {
     function AnimalListComponent() {
         this.clickSender = new core_1.EventEmitter();
+        this.filterByAge = "all";
     }
     AnimalListComponent.prototype.editAnimalClicked = function (animalToEdit) {
         this.clickSender.emit(animalToEdit);
+    };
+    AnimalListComponent.prototype.onChange = function (optionFromMenu) {
+        this.filterByAge = optionFromMenu;
     };
     return AnimalListComponent;
 }());
@@ -30,7 +34,7 @@ __decorate([
 AnimalListComponent = __decorate([
     core_1.Component({
         selector: 'animal-list',
-        template: "\n  <ul>\n    <li *ngFor=\"let currentAnimal of childAnimalList\">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)=\"editAnimalClicked(currentAnimal)\">Edit</button></li>\n  </ul>\n  "
+        template: "\n  <select (change)=\"onChange($event.target.value)\">\n    <option value=\"2plus\">All animals age 2 and above</option>\n    <option value=\"2below\">All animals below age 2</option>\n    <option value=\"all\" selected=\"selected\">All animals</option>\n  </select>\n  <ul>\n    <li *ngFor=\"let currentAnimal of childAnimalList | agelimit:filterByAge\">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)=\"editAnimalClicked(currentAnimal)\">Edit</button></li>\n  </ul>\n  "
     })
 ], AnimalListComponent);
 exports.AnimalListComponent = AnimalListComponent;
