@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
+import { Animal } from './animal.model'
 
 @Component({
   selector: 'app-root',
   template: `
   <div class="container">
     <h1>To Do List</h1>
-    <h3>For Epicodus Angular Homework{{currentFocus}}</h3>
-    <ul>
-      <li *ngFor="let currentAnimal of animals">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)="editAnimal(currentAnimal)">Edit</button></li>
-    </ul>
+    <h3>For Epicodus Angular Homework</h3>
+
+    <animal-list [childAnimalList] = "masterAnimalList"></animal-list>
+
     <hr>
     <div *ngIf="selectedAnimal">
       <h3>Edit {{selectedAnimal.species}} - {{selectedAnimal.name}}</h3>
@@ -25,12 +26,13 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  currentFocus: string = 'Angular Homework';
-  animals: Animal[] = [
+  masterAnimalList: Animal[] = [
     new Animal('SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
     new Animal('2SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
     new Animal('3SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES')
   ];
+
+  currentFocus: string = 'Angular Homework';
 
   selectedAnimal = null;
 
@@ -41,16 +43,4 @@ export class AppComponent {
   finishedEditing() {
     this.selectedAnimal = null;
   }
-}
-
-export class Animal {
-  constructor(public species: string,
-    public name: string,
-    public age: number,
-    public diet: string,
-    public location: string,
-    public caretakers: number,
-    public sex: string,
-    public likes: string,
-    public dislikes: string) { }
 }
