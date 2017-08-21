@@ -9,14 +9,23 @@ import { Component } from '@angular/core';
     <ul>
       <li *ngFor="let currentAnimal of animals">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)="editAnimal(currentAnimal)">Edit</button></li>
     </ul>
+    <hr>
+    <div>
+      <h3>Edit {{selectedAnimal.species}} - {{selectedAnimal.name}}</h3>
+      <label>Animals Name:</label>
+      <input [(ngModel)]="selectedAnimal.name">
+      <label>Animals Age:</label>
+      <input [(ngModel)]="selectedAnimal.age">
+      <label>Animals Caretakers::</label>
+      <input [(ngModel)]="selectedAnimal.caretakers">
+    </div>
   </div>
   `
 })
 
 export class AppComponent {
-
   editAnimal(clickedAnimal) {
-    this.selectedTask = clickedAnimal;
+    this.selectedAnimal = clickedAnimal;
   }
 
 
@@ -26,6 +35,8 @@ export class AppComponent {
     new Animal('2SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
     new Animal('3SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES')
   ];
+
+  selectedAnimal: Animal = this.animals[0];
 }
 
 export class Animal {
