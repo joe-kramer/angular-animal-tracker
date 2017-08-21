@@ -1,0 +1,17 @@
+{
+  "name": "angular-animal-tracker",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Joe Kramer <joekramer1125@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
