@@ -19,12 +19,13 @@ This program is for someone like a park ranger to keep track of animals on their
   * AnimalListComponent contains our list of animals with edit buttons, which actions get mapped back to app.Component.ts
   * EditAnimalComponent takes control of editing our animals, and pushing that information back to our app.Component
   * New-animal Component is created as a form, which pushes the new animal object into the master list on app.Component.ts
+  * agelimit.pipe.ts allows me to filter what animals I am displaying to the user depending on their age. This interacts with the AnimalListComponent
 
 4. UX/UI
   * Built with bootstrap
 
 5. Polish
-  * Make form info disappear 
+  * Make form info disappear
   * Add stylesheet
   * Add delete method
   * Make README awesome

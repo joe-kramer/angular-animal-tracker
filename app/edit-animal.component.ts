@@ -8,11 +8,11 @@ import { Animal } from './animal.model';
     <div *ngIf="childSelectedAnimal">
       <h3>Edit {{childSelectedAnimal.species}} - {{childSelectedAnimal.name}}</h3>
       <label>Animals Name:</label>
-      <input [(ngModel)]="childSelectedAnimal.name">
+      <input [(ngModel)]="childSelectedAnimal.name"><br>
       <label>Animals Age:</label>
-      <input [(ngModel)]="childSelectedAnimal.age">
+      <input [(ngModel)]="childSelectedAnimal.age"><br>
       <label>Animals Caretakers::</label>
-      <input [(ngModel)]="childSelectedAnimal.caretakers">
+      <input [(ngModel)]="childSelectedAnimal.caretakers"><br>
       <button (click)="doneButtonClicked()">Done</button>
     </div>
   </div>

@@ -1,0 +1,11 @@
+.container {
+  background-color: skyblue;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+.liLabel {
+  font-weight: bold;
+}

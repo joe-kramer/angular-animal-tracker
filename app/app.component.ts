@@ -5,7 +5,7 @@ import { Animal } from './animal.model'
   selector: 'app-root',
   template: `
   <div class="container">
-    <h1>Animal tracker - Angualar 2</h1>
+    <h1 class="jumbotron">Animal tracker - Angular 2</h1>
     <animal-list [childAnimalList] = "masterAnimalList" (clickSender) = "editAnimal($event)"></animal-list>
     <hr>
 
@@ -18,9 +18,9 @@ import { Animal } from './animal.model'
 
 export class AppComponent {
   masterAnimalList: Animal[] = [
-    new Animal('SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
-    new Animal('2SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES'),
-    new Animal('3SPECIES', 'NAME', 2, 'DIET', 'LOCATION', 5, 'SEX', 'LIKES', 'DISLIKES')
+    new Animal('Wolf', 'toby', 2, 'meat', 'northwest', 5, 'male', 'playing', 'bears'),
+    new Animal('bear', 'brian', 3, 'deer', 'southeast', 4, 'male', 'sleeping', 'finding food'),
+    new Animal('bird', 'karen', 4, 'mice', 'north', 1, 'female', 'flying', 'snakes')
   ];
 
   currentFocus: string = 'Angular Homework';

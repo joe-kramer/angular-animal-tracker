@@ -31,7 +31,7 @@ __decorate([
 EditAnimalComponent = __decorate([
     core_1.Component({
         selector: 'edit-animal',
-        template: "\n  <div>\n    <div *ngIf=\"childSelectedAnimal\">\n      <h3>Edit {{childSelectedAnimal.species}} - {{childSelectedAnimal.name}}</h3>\n      <label>Animals Name:</label>\n      <input [(ngModel)]=\"childSelectedAnimal.name\">\n      <label>Animals Age:</label>\n      <input [(ngModel)]=\"childSelectedAnimal.age\">\n      <label>Animals Caretakers::</label>\n      <input [(ngModel)]=\"childSelectedAnimal.caretakers\">\n      <button (click)=\"doneButtonClicked()\">Done</button>\n    </div>\n  </div>\n  "
+        template: "\n  <div>\n    <div *ngIf=\"childSelectedAnimal\">\n      <h3>Edit {{childSelectedAnimal.species}} - {{childSelectedAnimal.name}}</h3>\n      <label>Animals Name:</label>\n      <input [(ngModel)]=\"childSelectedAnimal.name\"><br>\n      <label>Animals Age:</label>\n      <input [(ngModel)]=\"childSelectedAnimal.age\"><br>\n      <label>Animals Caretakers::</label>\n      <input [(ngModel)]=\"childSelectedAnimal.caretakers\"><br>\n      <button (click)=\"doneButtonClicked()\">Done</button>\n    </div>\n  </div>\n  "
     })
 ], EditAnimalComponent);
 exports.EditAnimalComponent = EditAnimalComponent;

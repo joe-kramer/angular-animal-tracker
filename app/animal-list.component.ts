@@ -10,7 +10,16 @@ import { Animal } from './animal.model';
     <option value="all" selected="selected">All animals</option>
   </select>
   <ul>
-    <li *ngFor="let currentAnimal of childAnimalList | agelimit:filterByAge">{{currentAnimal.species}} - {{currentAnimal.age}} - {{currentAnimal.name}} <button (click)="editAnimalClicked(currentAnimal)">Edit</button></li>
+    <li *ngFor="let currentAnimal of childAnimalList | agelimit:filterByAge"><span class="liLabel">Species:</span> {{currentAnimal.species}}<br>
+    <span class="liLabel">Name:</span> {{currentAnimal.age}}<br>
+    <span class="liLabel">Age:</span> {{currentAnimal.name}}<br>
+    <span class="liLabel">Diet:</span> {{currentAnimal.diet}}<br>
+    <span class="liLabel">Location:</span> {{currentAnimal.location}}<br>
+    <span class="liLabel">Caretakers:</span> {{currentAnimal.caretakers}}<br>
+    <span class="liLabel">Sex:</span> {{currentAnimal.sex}}<br>
+    <span class="liLabel">Likes:</span> {{currentAnimal.likes}}<br>
+    <span class="liLabel">Dislikes:</span> {{currentAnimal.dislikes}}<br>
+    <button (click)="editAnimalClicked(currentAnimal)">Edit</button><hr></li>
   </ul>
   `
 })
